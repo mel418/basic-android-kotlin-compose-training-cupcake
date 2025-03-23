@@ -79,6 +79,31 @@ class OrderViewModel : ViewModel() {
     }
 
     /**
+     * Set the [paymentType] for this order's state
+     */
+    fun setPaymentType(paymentType: String) {
+        _uiState.update { currentState ->
+            currentState.copy(paymentType = paymentType)
+        }
+    }
+
+    /**
+     * Set the [cardInfo] for this order. Currently a placeholder as card info isn't stored in UiState.
+     */
+    fun setCardInfo(cardInfo: CardInfo) {
+        // Placeholder: Card info is passed to FinalSummaryScreen but not stored in uiState
+    }
+
+    /**
+     * Set the [shippingAddress] for this order's state
+     */
+    fun setShippingAddress(address: String) {
+        _uiState.update { currentState ->
+            currentState.copy(shippingAddress = address)
+        }
+    }
+
+    /**
      * Reset the order state
      */
     fun resetOrder() {
@@ -109,7 +134,7 @@ class OrderViewModel : ViewModel() {
         val formatter = SimpleDateFormat("E MMM d", Locale.getDefault())
         val calendar = Calendar.getInstance()
         // add current date and the following 3 dates.
-        repeat(4) {
+        repeat(5) {
             dateOptions.add(formatter.format(calendar.time))
             calendar.add(Calendar.DATE, 1)
         }

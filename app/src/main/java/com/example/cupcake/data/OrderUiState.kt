@@ -29,5 +29,9 @@ data class OrderUiState(
     /** Total price for the order */
     val price: String = "",
     /** Available pickup dates for the order*/
-    val pickupOptions: List<String> = listOf()
+    val pickupOptions: List<String> = listOf(),
+    /** Payment type*/
+    val paymentType: String? = null,
+    /** Shipping address*/
+    val shippingAddress: String? = null,
 )
